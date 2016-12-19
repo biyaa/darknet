@@ -9,5 +9,6 @@ For questions or issues please use the [Google Group](https://groups.google.com/
 #Darknet weight to txt converter#
 The converter convert from trainning weights to txt for convenience tensorlfow used!
 The command is :
-./darknet convert cfg/yolo.cfg yolo.weights
-
+        ```
+        ./darknet convert cfg/yolo.cfg yolo.weights
+        ```
