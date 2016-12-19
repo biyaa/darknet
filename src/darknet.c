@@ -14,6 +14,7 @@
 
 extern void predict_classifier(char *datacfg, char *cfgfile, char *weightfile, char *filename, int top);
 extern void test_detector(char *datacfg, char *cfgfile, char *weightfile, char *filename, float thresh);
+extern void conv_detector(char *datacfg, char *cfgfile, char *weightfile, char *filename, float thresh);
 extern void run_voxel(int argc, char **argv);
 extern void run_yolo(int argc, char **argv);
 extern void run_detector(int argc, char **argv);
@@ -384,6 +385,10 @@ int main(int argc, char **argv)
         float thresh = find_float_arg(argc, argv, "-thresh", .24);
         char *filename = (argc > 4) ? argv[4]: 0;
         test_detector("cfg/coco.data", argv[2], argv[3], filename, thresh);
+    } else if (0 == strcmp(argv[1], "convert")){
+        float thresh = find_float_arg(argc, argv, "-thresh", .24);
+        char *filename = (argc > 4) ? argv[4]: 0;
+        conv_detector("cfg/coco.data", argv[2], argv[3], filename, thresh);
     } else if (0 == strcmp(argv[1], "cifar")){
         run_cifar(argc, argv);
     } else if (0 == strcmp(argv[1], "go")){
